@@ -1,0 +1,56 @@
+import { COLORS } from '../../constants/theme';
+import { Tabs } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
+
+export default function TabLayout() {
+  return (
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+        tabBarStyle: {
+          backgroundColor: COLORS.background,
+          borderTopWidth: 1,
+          borderTopColor: '#1A1A1A',
+          height: 60,
+          paddingBottom: 8,
+          paddingTop: 8,
+        },
+        tabBarActiveTintColor: COLORS.primary,
+        tabBarInactiveTintColor: COLORS.textDim,
+        tabBarLabelStyle: {
+          fontSize: 10,
+          fontWeight: 'bold',
+          letterSpacing: 1,
+        }
+      }}>
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: 'HOME',
+          tabBarIcon: ({ color, focused }) => <Ionicons name={focused ? 'home' : 'home-outline'} size={24} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="hydrate"
+        options={{
+          title: 'HYDRATE',
+          tabBarIcon: ({ color, focused }) => <Ionicons name={focused ? 'water' : 'water-outline'} size={24} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="insights"
+        options={{
+          title: 'INSIGHTS',
+          tabBarIcon: ({ color, focused }) => <Ionicons name={focused ? 'bar-chart' : 'bar-chart-outline'} size={24} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'PROFILE',
+          tabBarIcon: ({ color, focused }) => <Ionicons name={focused ? 'person' : 'person-outline'} size={24} color={color} />,
+        }}
+      />
+    </Tabs>
+  );
+}
