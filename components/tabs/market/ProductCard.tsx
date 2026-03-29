@@ -2,7 +2,8 @@ import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { moderateScale } from "react-native-size-matters";
 import { Ionicons } from "@expo/vector-icons";
-import { COLORS } from "../../../constants/theme";
+import { useRouter } from "expo-router";
+import { COLORS } from "@/constants/theme";
 
 export interface Product {
   id: string;
@@ -16,8 +17,14 @@ export interface Product {
 }
 
 export function ProductCard({ product }: { product: Product }) {
+  const router = useRouter();
+
   return (
-    <TouchableOpacity style={styles.container} activeOpacity={0.9}>
+    <TouchableOpacity 
+      style={styles.container} 
+      activeOpacity={0.9}
+      onPress={() => router.push(`/market/${product.id}` as any)}
+    >
       <View style={styles.imageContainer}>
         <Image 
           source={product.image} 

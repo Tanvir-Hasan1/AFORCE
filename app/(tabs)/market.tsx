@@ -1,10 +1,12 @@
-import React from "react";
-import { StyleSheet, View, FlatList, Text } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, View, FlatList } from "react-native";
+import { useRouter } from "expo-router";
 import { moderateScale } from "react-native-size-matters";
-import { COLORS } from "../../constants/theme";
+import { COLORS } from "@/constants/theme";
 import { MarketHeader } from "../../components/tabs/market/MarketHeader";
 import { CategoryChips } from "../../components/tabs/market/CategoryChips";
 import { ProductCard, Product } from "../../components/tabs/market/ProductCard";
+import { Sidebar } from "../../components/ui/Sidebar";
 
 const PRODUCTS: Product[] = [
   {
@@ -61,11 +63,14 @@ const PRODUCTS: Product[] = [
 ];
 
 export default function MarketScreen() {
+  const router = useRouter();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   const renderHeader = () => <CategoryChips />;
 
   return (
     <View style={styles.container}>
-      <MarketHeader />
+      <MarketHeader onMenuPress={() => setIsSidebarOpen(true)} />
       
       <FlatList
         data={PRODUCTS}
@@ -83,6 +88,16 @@ export default function MarketScreen() {
         maxToRenderPerBatch={6}
         windowSize={5}
         removeClippedSubviews={true}
+      />
+
+      <Sidebar 
+        isOpen={isSidebarOpen} 
+        onClose={() => setIsSidebarOpen(false)} 
+        onNavigate={(screen) => {
+          if (screen.startsWith('/')) {
+            router.push(screen as any);
+          }
+        }}
       />
     </View>
   );

@@ -3,13 +3,16 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { moderateScale } from "react-native-size-matters";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { COLORS } from "../../../constants/theme";
+import { useRouter } from "expo-router";
+import { COLORS } from "@/constants/theme";
 
-export function MarketHeader() {
+export function MarketHeader({ onMenuPress }: { onMenuPress: () => void }) {
+  const router = useRouter();
+
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
       <View style={styles.headerRow}>
-        <TouchableOpacity style={styles.iconBtn}>
+        <TouchableOpacity style={styles.iconBtn} onPress={onMenuPress}>
           <Ionicons name="menu-outline" size={moderateScale(28)} color={COLORS.text} />
         </TouchableOpacity>
         
@@ -17,7 +20,7 @@ export function MarketHeader() {
           AFORCE<Text style={{ color: COLORS.primary }}>.</Text>
         </Text>
         
-        <TouchableOpacity style={styles.cartBtn}>
+        <TouchableOpacity style={styles.cartBtn} onPress={() => router.push('/market/cart')}>
           <Ionicons name="cart-outline" size={moderateScale(28)} color={COLORS.text} />
           <View style={styles.badge}>
             <Text style={styles.badgeText}>2</Text>
