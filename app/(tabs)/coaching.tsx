@@ -2,10 +2,10 @@ import { moderateScale } from 'react-native-size-matters';
 import { View, Text, StyleSheet } from 'react-native';
 import { COLORS } from '../../constants/theme';
 
-export default function HydrateScreen() {
+export default function CoachingScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hydrate Tab</Text>
+      <Text style={styles.text}>Coaching Tab</Text>
     </View>
   );
 }

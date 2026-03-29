@@ -31,17 +31,24 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="hydrate"
+        name="market"
         options={{
-          title: 'HYDRATE',
-          tabBarIcon: ({ color, focused }) => <Ionicons name={focused ? 'water' : 'water-outline'} size={24} color={color} />,
+          title: 'MARKET',
+          tabBarIcon: ({ color, focused }) => <Ionicons name={focused ? 'storefront' : 'storefront-outline'} size={24} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="coaching"
+        options={{
+          title: 'COACHING',
+          tabBarIcon: ({ color, focused }) => <Ionicons name={focused ? 'bulb' : 'bulb-outline'} size={24} color={color} />,
         }}
       />
       <Tabs.Screen
         name="insights"
         options={{
           title: 'INSIGHTS',
-          tabBarIcon: ({ color, focused }) => <Ionicons name={focused ? 'bar-chart' : 'bar-chart-outline'} size={24} color={color} />,
+          tabBarIcon: ({ color, focused }) => <Ionicons name={focused ? 'analytics' : 'analytics-outline'} size={24} color={color} />,
         }}
       />
       <Tabs.Screen
