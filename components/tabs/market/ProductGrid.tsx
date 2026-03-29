@@ -1,10 +1,7 @@
 import React from "react";
-import { StyleSheet, View, FlatList, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { moderateScale } from "react-native-size-matters";
-import { COLORS } from "../../constants/theme";
-import { MarketHeader } from "../../components/tabs/market/MarketHeader";
-import { CategoryChips } from "../../components/tabs/market/CategoryChips";
-import { ProductCard, Product } from "../../components/tabs/market/ProductCard";
+import { ProductCard, Product } from "./ProductCard";
 
 const PRODUCTS: Product[] = [
   {
@@ -60,44 +57,22 @@ const PRODUCTS: Product[] = [
   },
 ];
 
-export default function MarketScreen() {
-  const renderHeader = () => <CategoryChips />;
-
+export function ProductGrid() {
   return (
     <View style={styles.container}>
-      <MarketHeader />
-      
-      <FlatList
-        data={PRODUCTS}
-        renderItem={({ item }) => (
-          <ProductCard product={item} />
-        )}
-        keyExtractor={(item) => item.id}
-        numColumns={2}
-        columnWrapperStyle={styles.columnWrapper}
-        ListHeaderComponent={renderHeader}
-        stickyHeaderIndices={[0]}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.listContent}
-        initialNumToRender={6}
-        maxToRenderPerBatch={6}
-        windowSize={5}
-        removeClippedSubviews={true}
-      />
+      {PRODUCTS.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: COLORS.background,
-  },
-  listContent: {
-    paddingBottom: moderateScale(100),
-  },
-  columnWrapper: {
-    justifyContent: "space-between",
     paddingHorizontal: moderateScale(20),
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    paddingBottom: moderateScale(100),
   },
 });
