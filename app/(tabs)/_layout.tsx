@@ -40,7 +40,12 @@ export default function TabLayout() {
       <Tabs.Screen
         name="coaching"
         options={{
-          title: 'COACHING',
+          headerShown: true,
+          headerTitle: 'AForce Coaching',
+          headerTitleAlign: 'center',
+          headerStyle: { backgroundColor: COLORS.background },
+          headerTitleStyle: { color: COLORS.text, fontWeight: 'bold' },
+          headerShadowVisible: false,
           tabBarIcon: ({ color, focused }) => <Ionicons name={focused ? 'bulb' : 'bulb-outline'} size={24} color={color} />,
         }}
       />
