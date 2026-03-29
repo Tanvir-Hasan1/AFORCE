@@ -9,6 +9,7 @@ import { MainProgressRing } from '../../components/tabs/home/MainProgressRing';
 import { StreakCard } from '../../components/tabs/home/StreakCard';
 import { SuggestionCard } from '../../components/tabs/home/SuggestionCard';
 import { QuickLog } from '../../components/tabs/home/QuickLog';
+import { HydrationControlCard } from '../../components/tabs/home/HydrationControlCard';
 import { DailyGoalBar } from '../../components/tabs/home/DailyGoalBar';
 import { MetricTile } from '../../components/tabs/home/MetricTile';
 
@@ -69,6 +70,8 @@ export default function HomeScreen() {
         <SuggestionCard />
         
         <QuickLog />
+        
+        <HydrationControlCard />
         
         <DailyGoalBar />
 
