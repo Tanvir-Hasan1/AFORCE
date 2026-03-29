@@ -52,7 +52,12 @@ export default function TabLayout() {
       <Tabs.Screen
         name="insights"
         options={{
-          title: 'INSIGHTS',
+          headerShown: true,
+          headerTitle: 'Insights',
+          headerTitleAlign: 'center',
+          headerStyle: { backgroundColor: COLORS.background },
+          headerTitleStyle: { color: COLORS.text, fontWeight: 'bold' },
+          headerShadowVisible: false,
           tabBarIcon: ({ color, focused }) => <Ionicons name={focused ? 'analytics' : 'analytics-outline'} size={24} color={color} />,
         }}
       />
