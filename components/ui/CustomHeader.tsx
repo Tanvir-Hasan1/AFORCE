@@ -6,7 +6,15 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { moderateScale } from "react-native-size-matters";
 import { COLORS } from "../../constants/theme";
 
-export function CustomHeader({ title }: { title: string }) {
+export function CustomHeader({ 
+  title, 
+  rightIcon, 
+  onRightPress 
+}: { 
+  title: string; 
+  rightIcon?: keyof typeof Ionicons.glyphMap; 
+  onRightPress?: () => void;
+}) {
   const router = useRouter();
 
   return (
@@ -15,7 +23,13 @@ export function CustomHeader({ title }: { title: string }) {
         <Ionicons name="arrow-back" size={20} color={COLORS.text} />
       </TouchableOpacity>
       <Text style={styles.title}>{title}</Text>
-      <View style={styles.placeholder} />
+      {rightIcon ? (
+        <TouchableOpacity style={styles.backBtn} onPress={onRightPress}>
+          <Ionicons name={rightIcon} size={20} color={COLORS.text} />
+        </TouchableOpacity>
+      ) : (
+        <View style={styles.placeholder} />
+      )}
     </SafeAreaView>
   );
 }
