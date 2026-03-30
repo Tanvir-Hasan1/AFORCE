@@ -7,7 +7,7 @@ import { COLORS } from "@/constants/theme";
 interface InputRowProps {
   icon: keyof typeof Ionicons.glyphMap;
   label: string;
-  value: string;
+  value?: string;
   adjustment?: string;
   isLast?: boolean;
 }
@@ -20,7 +20,7 @@ function InputRow({ icon, label, value, adjustment, isLast }: InputRowProps) {
         <Text style={styles.label}>{label}</Text>
       </View>
       <View style={styles.right}>
-        <Text style={styles.value}>{value}</Text>
+        {value && <Text style={styles.value}>{value}</Text>}
         {adjustment && <Text style={styles.adjustment}>{adjustment}</Text>}
       </View>
     </View>
@@ -34,9 +34,9 @@ export function AlgorithmInputs() {
       <View style={styles.card}>
         <InputRow icon="scale-outline" label="Weight" value="75kg" />
         <InputRow icon="flash-outline" label="Activity Level" value="Moderate" />
-        <InputRow icon="thermometer-outline" label="Weather Adjustment" value="+0.3L" adjustment="+0.3L" />
-        <InputRow icon="barbell-outline" label="Workout Impact" value="+0.5L" adjustment="+0.5L" />
-        <InputRow icon="footsteps-outline" label="Steps Adjustment" value="+0.2L" adjustment="+0.2L" isLast />
+        <InputRow icon="thermometer-outline" label="Weather Adjustment" adjustment="+0.3L" />
+        <InputRow icon="barbell-outline" label="Workout Impact" adjustment="+0.5L" />
+        <InputRow icon="footsteps-outline" label="Steps Adjustment" adjustment="+0.2L" isLast />
       </View>
     </View>
   );
