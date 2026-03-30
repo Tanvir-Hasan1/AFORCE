@@ -30,50 +30,49 @@ export default function EditProfileScreen() {
         {/* Form Fields */}
         <View style={styles.form}>
           <View style={styles.inputGroup}>
-            <Text style={styles.label}>FULL NAME</Text>
+            <Text style={styles.label}>Name</Text>
             <View style={styles.inputWrapper}>
               <TextInput 
                 style={styles.input} 
-                placeholder="Alex Johnson" 
-                placeholderTextColor="#444"
+                placeholder="Minnie" 
+                placeholderTextColor="#666"
               />
             </View>
           </View>
 
           <View style={styles.inputGroup}>
-            <Text style={styles.label}>EMAIL ADDRESS</Text>
+            <Text style={styles.label}>Email</Text>
             <View style={styles.inputWrapper}>
               <TextInput 
                 style={styles.input} 
-                placeholder="alex.j@example.com" 
-                placeholderTextColor="#444"
+                placeholder="minnie@gmail.com" 
+                placeholderTextColor="#666"
                 keyboardType="email-address"
               />
             </View>
           </View>
 
           <View style={styles.inputGroup}>
-            <Text style={styles.label}>PHONE NUMBER</Text>
-            <View style={styles.inputWrapper}>
+            <Text style={styles.label}>Date of Birth</Text>
+            <View style={[styles.inputWrapper, styles.rowInput]}>
               <TextInput 
-                style={styles.input} 
-                placeholder="+1 234 567 890" 
-                placeholderTextColor="#444"
-                keyboardType="phone-pad"
+                style={styles.inputFlex} 
+                placeholder="28/11/2005" 
+                placeholderTextColor="#666"
               />
+              <Ionicons name="calendar-outline" size={20} color="#666" />
             </View>
           </View>
 
           <View style={styles.inputGroup}>
-            <Text style={styles.label}>BIO</Text>
-            <View style={[styles.inputWrapper, styles.bioWrapper]}>
+            <Text style={styles.label}>Country</Text>
+            <View style={[styles.inputWrapper, styles.rowInput]}>
               <TextInput 
-                style={[styles.input, styles.bioInput]} 
-                placeholder="Elite athlete focused on optimal hydration." 
-                placeholderTextColor="#444"
-                multiline
-                numberOfLines={3}
+                style={styles.inputFlex} 
+                placeholder="Mexico" 
+                placeholderTextColor="#666"
               />
+              <Ionicons name="caret-down" size={16} color="#666" />
             </View>
           </View>
         </View>
@@ -92,22 +91,22 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
   },
   scrollContent: {
-    paddingHorizontal: moderateScale(20),
+    paddingHorizontal: moderateScale(25),
     paddingBottom: moderateScale(40),
   },
   avatarSection: {
     alignItems: "center",
-    marginTop: moderateScale(30),
-    marginBottom: moderateScale(40),
+    marginTop: moderateScale(20),
+    marginBottom: moderateScale(30),
   },
   avatarWrapper: {
     position: "relative",
-    marginBottom: moderateScale(16),
+    marginBottom: moderateScale(12),
   },
   avatarPlaceholder: {
-    width: moderateScale(120),
-    height: moderateScale(120),
-    borderRadius: moderateScale(60),
+    width: moderateScale(100),
+    height: moderateScale(100),
+    borderRadius: moderateScale(50),
     backgroundColor: "#111",
     alignItems: "center",
     justifyContent: "center",
@@ -118,72 +117,73 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 0,
     right: 0,
-    width: moderateScale(40),
-    height: moderateScale(40),
-    borderRadius: moderateScale(20),
+    width: moderateScale(32),
+    height: moderateScale(32),
+    borderRadius: moderateScale(16),
     backgroundColor: COLORS.primary,
     alignItems: "center",
     justifyContent: "center",
-    borderWidth: 3,
+    borderWidth: 2,
     borderColor: COLORS.background,
   },
   changeText: {
-    color: COLORS.primary,
+    color: "#B0B0B0",
     fontSize: moderateScale(14),
-    fontWeight: "700",
+    fontWeight: "600",
   },
   form: {
     marginBottom: moderateScale(40),
   },
   inputGroup: {
-    marginBottom: moderateScale(24),
+    marginBottom: moderateScale(20),
   },
   label: {
-    color: "#666",
-    fontSize: moderateScale(11),
-    fontWeight: "900",
-    letterSpacing: 1,
-    marginBottom: moderateScale(10),
+    color: "#B0B0B0",
+    fontSize: moderateScale(14),
+    fontWeight: "500",
+    marginBottom: moderateScale(8),
     marginLeft: moderateScale(4),
   },
   inputWrapper: {
-    backgroundColor: COLORS.card,
-    borderRadius: moderateScale(16),
+    backgroundColor: "#000000",
+    borderRadius: moderateScale(28),
     borderWidth: 1,
-    borderColor: "#1A1A1A",
+    borderColor: "#333",
     height: moderateScale(56),
     justifyContent: "center",
     paddingHorizontal: moderateScale(20),
   },
+  rowInput: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
   input: {
     color: "#FFF",
     fontSize: moderateScale(16),
-    fontWeight: "600",
-  },
-  bioWrapper: {
-    height: moderateScale(100),
-    paddingVertical: moderateScale(16),
-    alignItems: "flex-start",
-  },
-  bioInput: {
-    textAlignVertical: "top",
     width: "100%",
+  },
+  inputFlex: {
+    flex: 1,
+    color: "#FFF",
+    fontSize: moderateScale(16),
   },
   saveBtn: {
     backgroundColor: COLORS.primary,
-    height: moderateScale(64),
-    borderRadius: moderateScale(32),
+    height: moderateScale(56),
+    borderRadius: moderateScale(28),
     alignItems: "center",
     justifyContent: "center",
+    // Premium Neon Glow
     shadowColor: COLORS.primary,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 8,
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.5,
+    shadowRadius: 15,
+    elevation: 10,
   },
   saveText: {
     color: "#000",
     fontSize: moderateScale(18),
-    fontWeight: "900",
+    fontWeight: "bold",
   },
 });
