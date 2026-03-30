@@ -63,7 +63,12 @@ export default function HomeScreen() {
         </View>
 
         {/* Dashboard Widgets */}
-        <MainProgressRing />
+        <TouchableOpacity 
+          activeOpacity={0.9} 
+          onPress={() => router.push('/couching/hydration-plan')}
+        >
+          <MainProgressRing />
+        </TouchableOpacity>
         
         <StreakCard />
         
